@@ -1,3 +1,6 @@
 from django.contrib import admin
+from models import Session, Exam, Paper
 
-# Register your models here.
+admin.site.register(Session)
+admin.site.register(Exam)
+admin.site.register(Paper)
