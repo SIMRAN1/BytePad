@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
+from models import Paper
+from serializers import  PaperSerilaizer
 
-# Create your views here.
+
+class PaperListAPIView(ListAPIView):
+    queryset = Paper.objects.all()
+    serializer_class = PaperSerilaizer
