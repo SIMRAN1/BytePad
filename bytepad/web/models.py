@@ -25,3 +25,10 @@ class Paper(models.Model):
 
     def __unicode__(self):
         return '{0} {1} {2}'.format(self.name, self.exam, self.session)
+
+
+class LastUpdate(models.Model):
+    timestamp = models.DateTimeField()
+
+    def __unicode__(self):
+        return str(self.timestamp)
