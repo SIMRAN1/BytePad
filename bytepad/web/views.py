@@ -37,7 +37,6 @@ class SearchView(TemplateView):
         context = super(SearchView, self).get_context_data(**kwargs)
         context['form'] = SearchForm(initial={'name': context.get('query')})
         results = watson.filter(Paper, context.get('query'))
-        print(results)
         context['queryset'] = results
         return context
 
