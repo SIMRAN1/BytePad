@@ -45,7 +45,6 @@ class UploadView(FormView):
         papers = []
         for f in files:
             # Do something with each file.
-            print(f)
             papers.append(Paper(name=f.name, file=f, exam=exam, session=session))
         Paper.objects.bulk_create(papers)
         return HttpResponseRedirect(self.get_success_url())
