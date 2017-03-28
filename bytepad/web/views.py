@@ -9,6 +9,9 @@ from forms import SearchForm
 
 
 class HomeView(TemplateView):
+    """
+    Landing page of the website
+    """
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
@@ -23,11 +26,14 @@ class HomeView(TemplateView):
 
 
 class SearchView(TemplateView):
+    """
+    Search results page
+    """
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
-        context['form'] = SearchForm()
+        context['form'] = SearchForm(initial={'name': context.get('query')})
         context['queryset'] = Paper.objects.filter(name__search=context.get('query'))
         return context
 
