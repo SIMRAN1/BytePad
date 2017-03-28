@@ -21,15 +21,7 @@ class Session(models.Model):
 
 
 def upload_document(instance, filename):
-    ext = filename.split('.')[-1]
-    # get filename
-    if instance.pk:
-        filename = '{}.{}'.format(instance.pk, ext)
-    else:
-        # set filename as random string
-        filename = '{}.{}'.format(uuid4().hex, ext)
-    # return the whole path to the file
-    return os.path.join('{}/{}'.format(instance.session, instance.exam), filename)
+    return os.path.join('{}/{}'.format(instance.session, instance.exam), instance.name)
 
 
 class Paper(models.Model):
