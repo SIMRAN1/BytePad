@@ -1,11 +1,13 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
+from django.views.generic import TemplateView
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from watson import search as watson
+
+from forms import SearchForm
 from models import Paper, LastUpdate
 from serializers import PaperSerilaizer
-from django.views.generic import TemplateView
-from forms import SearchForm
 
 
 class HomeView(TemplateView):
@@ -34,7 +36,9 @@ class SearchView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
         context['form'] = SearchForm(initial={'name': context.get('query')})
-        context['queryset'] = Paper.objects.filter(name__search=context.get('query'))
+        results = watson.filter(Paper, context.get('query'))
+        print(results)
+        context['queryset'] = results
         return context
 
     def post(self, request, *args, **kwargs):

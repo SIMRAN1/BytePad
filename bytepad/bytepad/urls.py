@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^god-panel/', admin.site.urls),
     url(r'', include('web.urls')),
+    url(r'^admin/', include('upload.urls')),
 ]
