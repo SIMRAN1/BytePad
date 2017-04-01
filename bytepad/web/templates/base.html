@@ -1,11 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load staticfiles %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Home | BytePad</title>
+    <title>BytePad</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          + rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block js %}{% endblock %}
+
+    {% block css %}{% endblock %}
+
 </head>
-<body>
-{% block content %}
-{% endblock %}
+<body class="grey lighten-5">
+<nav class="blue">
+    <div class="nav-wrapper">
+        <a href="{% url 'home' %}" class="brand-logo">BytePad</a>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock content %}
+</div>
+
+<footer class="">Powered by <span>Software Incubator</span></footer>
 </body>
 </html>
