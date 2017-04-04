@@ -1,5 +1,11 @@
+.app-store{
+    width:120px;
+}
+.google-store{
+    width: 140px;
+}
 .margin{
-    margin-top: 25%;
+    margin-top: 22%;
 }
 
 .brand-logo {
@@ -25,7 +31,7 @@ footer>span{
 }
 
 #search-form-div {
-    height: 17%;
+    height: 22%;
 }
 
 #attendance-nav-form {
