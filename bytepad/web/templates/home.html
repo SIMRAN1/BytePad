@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
 
 {% block navbar %}
     <a href="{% url 'home' %}" class="brand-logo">BytePad</a>
 {% endblock %}
 
-{% block content %}
 
+{% block content %}
     <div class="row margin">
         <div class="col m12 card-panel hoverable " id="search-form-div">
             <br>
@@ -27,7 +29,10 @@
             </form>
         </div>
     </div>
-
-
-
+    <div class="row">
+        <a target="_blank" href="https://play.google.com/store/apps/details?id=in.silive.bo"><img
+                src="{% static "image/googleplay.svg" %}">
+        </a>
+        <img src="{% static "image/apple.svg" %}">
+    </div>
 {% endblock %}

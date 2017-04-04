@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
-from web.models import Paper
+from web.models import Paper, LastUpdate
 
 from forms import UploadForm
 
@@ -55,4 +55,5 @@ class UploadView(LoginRequiredMixin, FormView):
             # Do something with each file.
             papers.append(Paper(name=f.name, file=f, exam=exam, session=session))
         Paper.objects.bulk_create(papers)
+
         return HttpResponseRedirect(self.get_success_url())

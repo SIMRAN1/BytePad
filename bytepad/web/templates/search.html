@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block navbar %}
     <form method="post" id="attendance-nav-form">
         {% csrf_token %}
@@ -12,6 +13,7 @@
     </form>
 {% endblock %}
 
+
 {% block content %}
     <div class="wrapper">
         <div class="content">
@@ -20,11 +22,12 @@
                     <div class="paper card-panel">
                         <div class="row">
                             <div class="col m6">
-                                {{ q.name }}
+                                {{ q.name }} | {{ q.exam }} | {{ q.session }}
 
                             </div>
                             <div class="col m6">
-                                <a href="https://docs.google.com/viewer?url=http://92381d21.ngrok.io{{ q.file.url }}"> <i class="material-icons right">description</i></a>
+                                <a href="https://docs.google.com/viewer?url=http://92381d21.ngrok.io{{ q.file.url }}">
+                                    <i class="material-icons right">description</i></a>
                                 <a href="{{ q.file.url }}"> <i class="material-icons right">get_app</i></a>
                             </div>
                         </div>
