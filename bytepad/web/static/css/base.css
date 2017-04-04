@@ -1,3 +1,7 @@
+.margin{
+    margin-top: 25%;
+}
+
 .brand-logo {
     margin-left: 2%;
 }
@@ -19,6 +23,7 @@ footer>span{
     color: #1976d2;
 }
 
-.search-form-div {
-    vertical-align: middle;
+#search-form-div {
+    height: 17%;
 }
+

@@ -3,25 +3,26 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col m12 card-panel hoverable" id="search-form-div">
+    <div class="row margin">
+        <div class="col m12 card-panel hoverable " id="search-form-div">
+        <br>
             <form method="post" id="attendance-form">
                 {% csrf_token %}
-                {% for field in form %}
-{#                    <div class="row">#}
-                        <div class="input-field col m6 inline">
-                            {{ field.errors }}{{ field }}
-                            {{ field.label_tag }}
+                        <div class="input-field">
+                            {{ form.name.errors }}
+                            {{ form.name }}
+                            <label class="label-icon" for={{ form.subject.id_for_label }}><i class="material-icons">search</i></label>
                         </div>
-{#                    </div>#}
-                {% endfor %}
-                <button class="btn waves-effect waves-light blue" type="submit"
-                        name="action"><i class="material-icons right">search</i>
-                    Search
-                </button>
+                <div class="center">
+                    <button class="btn waves-effect waves-light blue " type="submit"
+                            name="action"><i class="material-icons right">search</i>
+                        Search
+                    </button>
+                </div>
+
             </form>
 
-            <div class="col m12">
+            <div class="col m12 row center">
                 {% if messages %}
                     <ul class="messages" id="staggered-test">
                         {% for message in messages %}
