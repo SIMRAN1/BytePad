@@ -22,7 +22,8 @@
 <body class="grey lighten-5">
 <nav class="blue">
     <div class="nav-wrapper">
-        <a href="{% url 'home' %}" class="brand-logo">BytePad</a>
+        {% block navbar %} {% endblock %}
+
     </div>
 </nav>
 

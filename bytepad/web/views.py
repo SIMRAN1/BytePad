@@ -31,7 +31,7 @@ class SearchView(TemplateView):
     """
     Search results page
     """
-    template_name = 'home.html'
+    template_name = 'search.html'
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)

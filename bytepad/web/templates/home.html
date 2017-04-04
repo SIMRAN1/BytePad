@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
+{% block navbar %}
+    <a href="{% url 'home' %}" class="brand-logo">BytePad</a>
+{% endblock %}
 
 {% block content %}
 
     <div class="row margin">
         <div class="col m12 card-panel hoverable " id="search-form-div">
-        <br>
+            <br>
             <form method="post" id="attendance-form">
                 {% csrf_token %}
-                        <div class="input-field">
-                            {{ form.name.errors }}
-                            {{ form.name }}
-                            <label class="label-icon" for={{ form.subject.id_for_label }}><i class="material-icons">search</i></label>
-                        </div>
+                <div class="input-field">
+                    {{ form.name.errors }}
+                    {{ form.name }}
+                    <label class="label-icon" for={{ form.subject.id_for_label }}><i
+                            class="material-icons">search</i></label>
+                </div>
                 <div class="center">
                     <button class="btn waves-effect waves-light blue " type="submit"
                             name="action"><i class="material-icons right">search</i>
@@ -21,26 +25,9 @@
                 </div>
 
             </form>
-
-            <div class="col m12 row center">
-                {% if messages %}
-                    <ul class="messages" id="staggered-test">
-                        {% for message in messages %}
-                            <div>
-                                <li{% if message.tags %}
-                                    class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                            </div>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
         </div>
     </div>
 
-    {% if queryset %}
-        {% for q in queryset %}
-            {{ q }}
-        {% endfor %}
-    {% endif %}
+
 
 {% endblock %}

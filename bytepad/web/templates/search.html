@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <form method="post" id="attendance-nav-form">
+        {% csrf_token %}
+        <div class="input-field">
+            {{ form.name.errors }}
+            {{ form.name }}
+            <label class="label-icon" for={{ form.subject.id_for_label }}><i
+                    class="material-icons">search</i></label>
+        </div>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="content">
+            {% if queryset %}
+                {% for q in queryset %}
+                    <div class="paper card-panel">
+                        <div class="row">
+                            <div class="col m6">
+                                {{ q.name }}
+
+                            </div>
+                            <div class="col m6">
+                                <a href="https://docs.google.com/viewer?url=http://92381d21.ngrok.io{{ q.file.url }}"> <i class="material-icons right">description</i></a>
+                                <a href="{{ q.file.url }}"> <i class="material-icons right">get_app</i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
