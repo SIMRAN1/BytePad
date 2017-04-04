@@ -15,10 +15,15 @@
                 {% csrf_token %}
                 <div class="input-field">
                     {{ form.name.errors }}
+                    <i class="material-icons prefix">search</i>
                     {{ form.name }}
-                    <label class="label-icon" for={{ form.subject.id_for_label }}><i
-                            class="material-icons">search</i></label>
+                    <label class="label-icon" for={{ form.subject.id_for_label }}></label>
                 </div>
+{#                <div class="input-field col s6">#}
+{#                    #}
+{#                    <input id="icon_prefix" type="text" class="validate">#}
+{#                    <label for="icon_prefix">First Name</label>#}
+{#                </div>#}
                 <div class="center">
                     <button class="btn waves-effect waves-light blue " type="submit"
                             name="action"><i class="material-icons right">search</i>
@@ -29,10 +34,10 @@
             </form>
         </div>
     </div>
-    <div class="row">
+    <div class="row center">
         <a target="_blank" href="https://play.google.com/store/apps/details?id=in.silive.bo"><img
-                src="{% static "image/googleplay.svg" %}">
+                src="{% static "image/googleplay.svg" %}" class="google-store">
         </a>
-        <img src="{% static "image/apple.svg" %}">
+        <img src="{% static "image/apple.svg" %}" class="app-store">
     </div>
 {% endblock %}
